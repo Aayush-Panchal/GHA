@@ -5,14 +5,21 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Show OS
-            run: echo "This job is running on an ubuntu runner"
-              - lsb_release -a
-    echo-goodbye:
-        runs-on: ubuntu-latest
+            run: | 
+                echo "This job is running on an ubuntu runner"
+                echo "This job is running on $RUNNER_OS"
+              
+    windows-echo:
+        runs-on: windows-latest
         steps:
-          - name: Job failed
+          - name: show OS
             run: |
-              echo "Job succeeded"
-              exit 0
-          - name: Say goodbye
-            run: echo "Goodbye"
+              echo "This job is running on an windows runner"
+              echo "This job os running $RUNNER_OS"
+    mac-echo:
+        runs-on: macos-latest
+        steps:
+            - name: Show OS
+              run: |
+                  echo "This job is running on macos runner"
+                  echo "This job is running on $RUNNER_OS"

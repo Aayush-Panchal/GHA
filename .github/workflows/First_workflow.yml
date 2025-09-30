@@ -1,23 +1,27 @@
 name: First-workflow
 on: push
+
 jobs:
   echo-command:
     runs-on: ubuntu-latest
     steps:
       - name: echo
         run: echo "Hello World"
+
   version:
     runs-on: ubuntu-latest
     steps:
       - name: version-info
         run: |
           apparmor_parser --version
-          systemctl status apparmor.service
+          systemctl status apparmor.service || true
+
   python-command:
-     runs-on: ubuntu-latest
-     steps:
-       - name: python-program
-         run: |
-          vi first_python.py
-          print("This is my first workflow")
-          
+    runs-on: ubuntu-latest
+    steps:
+      - name: create-python-file
+        run: |
+          echo 'print("This is my first workflow")' > first_python.py
+
+      - name: run-python-file
+        run: python3 first_python.py

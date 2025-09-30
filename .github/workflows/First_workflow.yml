@@ -13,3 +13,11 @@ jobs:
         run: |
           apparmor_parser --version
           systemctl status apparmor.service
+  python-command:
+     runs-on: ubuntu-latest
+     steps:
+       - name: python-program
+         run: |
+          vi first_python.py
+          print("This is my first workflow")
+          

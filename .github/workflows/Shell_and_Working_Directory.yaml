@@ -1,0 +1,21 @@
+name: Shell and Working Directory
+on: push
+jobs:
+  Display-info-of-shell-and-wd:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Display_info
+       run: |
+        pwd
+        ls -a
+        echo $Github_SHA
+        echo $Github_repository
+  Display-info-of-shell-and-wd-in-windows:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Display_info
+       run: |
+        pwd
+        ls -a
+        echo $Github_SHA
+        echo $Github_repository

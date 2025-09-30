@@ -1,0 +1,15 @@
+name: First-workflow
+on: push
+jobs:
+  echo-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo "Hello World"
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: version-info
+        run: |
+          apt update
+          node -v
